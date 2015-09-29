@@ -39,10 +39,6 @@ def setup_logging(logfile, level=logging.INFO):
     _log.setLevel(level)
     formatter = logging.Formatter(
         '%(asctime)s [%(levelname)s] %(name)s %(lineno)d: %(message)s')
-    handler = logging.StreamHandler(sys.stdout)
-    handler.setLevel(level)
-    handler.setFormatter(formatter)
-    _log.addHandler(handler)
     handler = logging.handlers.TimedRotatingFileHandler(logfile,
                                                         when='D',
                                                         backupCount=10)
